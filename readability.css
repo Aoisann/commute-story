@@ -20,10 +20,29 @@ body.vehicle-mode .traveler{transform:translateY(35px) scale(.7)}
 .heading>p:last-child,.proposal-content>p:not(.eyebrow,.enter-car),.cabin-copy>p:not(.eyebrow),.final-copy>p:not(.eyebrow),.intro{color:#d2d0dc;font-size:clamp(.84rem,1.05vw,.98rem);line-height:2;max-width:44rem;text-shadow:0 2px 12px rgba(0,0,0,.75)}
 .subtitle{color:#ece9f5;font-size:clamp(.88rem,1.1vw,1rem);font-weight:500}
 .route-board p,.worry-copy li,.tech-grid article>p{color:#c7c4d2}.worry-copy li{font-size:.83rem}.large{color:#f0ecdf}.tech-grid h3{color:#f5f1e7}.tech-grid dl{color:#d2d0db}.panel::before{background:linear-gradient(90deg,rgba(4,5,12,.9),rgba(6,7,16,.58) 56%,rgba(6,7,16,.22))}.panel:nth-child(even)::before{background:linear-gradient(90deg,rgba(4,5,12,.82),rgba(7,8,18,.45) 62%,rgba(7,8,18,.18))}
-.foreground-traveler{position:fixed;z-index:30;left:8%;bottom:11%;width:40px;height:112px;pointer-events:none;transition:opacity .65s,transform .65s;filter:drop-shadow(0 0 9px rgba(255,215,120,.2))}.foreground-traveler::before{content:"";position:absolute;left:9px;top:0;width:22px;height:22px;border-radius:50%;background:#3b3a48;border:1px solid rgba(255,215,120,.35)}.foreground-traveler span{position:absolute;left:8px;top:24px;width:24px;height:49px;border-radius:45% 45% 18% 18%;background:#292a39;border:1px solid rgba(255,215,120,.25)}.foreground-traveler span::before,.foreground-traveler span::after{content:"";position:absolute;top:43px;width:6px;height:39px;background:#252633;transform-origin:top;animation:foreground-walk .72s ease-in-out infinite alternate}.foreground-traveler span::before{left:2px;transform:rotate(17deg)}.foreground-traveler span::after{right:2px;transform:rotate(-17deg)}body.vehicle-mode .foreground-traveler{opacity:0;transform:translateY(30px) scale(.72)}
+.foreground-traveler{position:fixed;z-index:30;left:8%;bottom:11%;width:44px;height:116px;pointer-events:none;transition:opacity .65s,transform .65s;filter:drop-shadow(0 0 9px rgba(255,215,120,.2));animation:walker-bob 1.05s linear infinite}
+.walker-head{position:absolute;z-index:5;left:13px;top:0;width:20px;height:22px;border-radius:52% 48% 45% 45%;background:#3b3a48;border:1px solid rgba(255,215,120,.32);transform-origin:50% 100%;animation:walker-head 1.05s ease-in-out infinite}
+.walker-head::before{content:"";position:absolute;right:-3px;top:8px;width:5px;height:7px;border-radius:0 70% 70% 0;background:#3b3a48}
+.walker-head::after{content:"";position:absolute;left:3px;top:-2px;width:15px;height:7px;border-radius:70% 55% 20% 15%;background:#222330}
+.walker-body{position:absolute;z-index:4;left:11px;top:23px;width:23px;height:43px;border-radius:42% 45% 24% 22%;background:linear-gradient(90deg,#242532,#333442);border:1px solid rgba(255,215,120,.22);transform:rotate(2deg)}
+.walker-body::after{content:"";position:absolute;right:-2px;bottom:-3px;width:21px;height:8px;border-radius:45%;background:#252633}
+.walker-arm,.walker-leg{position:absolute;display:block;background:#292a37;transform-origin:50% 3px}
+.walker-arm{top:29px;width:6px;height:29px;border-radius:4px;animation:walker-arm 1.05s cubic-bezier(.45,.05,.55,.95) infinite}
+.walker-arm::after{content:"";position:absolute;left:0;top:23px;width:5px;height:27px;border-radius:4px;background:#262733;transform:rotate(-18deg);transform-origin:50% 3px}
+.walker-arm.far{z-index:2;left:13px;opacity:.62;animation-delay:-.525s}.walker-arm.near{z-index:6;left:29px}
+.walker-leg{top:61px;width:8px;height:31px;border-radius:4px;animation:walker-thigh 1.05s cubic-bezier(.45,.05,.55,.95) infinite}
+.walker-leg b{position:absolute;left:1px;top:25px;width:7px;height:29px;border-radius:4px;background:#242530;transform-origin:50% 3px;animation:walker-shin 1.05s cubic-bezier(.45,.05,.55,.95) infinite}
+.walker-leg b::after{content:"";position:absolute;left:0;bottom:-3px;width:15px;height:6px;border-radius:5px 7px 3px 3px;background:#1d1e28;transform-origin:3px 50%;animation:walker-foot 1.05s ease-in-out infinite}
+.walker-leg.far{z-index:1;left:14px;opacity:.66;animation-delay:-.525s}.walker-leg.near{z-index:3;left:25px}.walker-leg.far b,.walker-leg.far b::after{animation-delay:-.525s}
+body.vehicle-mode .foreground-traveler{opacity:0;transform:translateY(30px) scale(.72);animation-play-state:paused}
 @keyframes lamps-left{to{transform:translateX(-25vw)}}
 @keyframes road-left{to{background-position:-145px 0}}
-@keyframes foreground-walk{to{transform:rotate(-17deg)}}
+@keyframes walker-bob{0%,50%,100%{margin-bottom:0}25%,75%{margin-bottom:3px}}
+@keyframes walker-head{0%,50%,100%{transform:rotate(1deg)}25%{transform:rotate(-2deg)}75%{transform:rotate(3deg)}}
+@keyframes walker-arm{0%,100%{transform:rotate(-24deg)}50%{transform:rotate(27deg)}}
+@keyframes walker-thigh{0%,100%{transform:rotate(27deg)}50%{transform:rotate(-25deg)}}
+@keyframes walker-shin{0%,100%{transform:rotate(5deg)}25%{transform:rotate(30deg)}50%{transform:rotate(10deg)}75%{transform:rotate(-21deg)}}
+@keyframes walker-foot{0%,100%{transform:rotate(-8deg)}25%{transform:rotate(12deg)}50%{transform:rotate(4deg)}75%{transform:rotate(-15deg)}}
 @media(max-width:900px){.heading h2,.proposal-content h2,.final-copy h2{font-size:clamp(1.8rem,5.6vw,2.8rem)}.traveler{left:9%}}
 @media(max-width:600px){.hero-copy h1{font-size:clamp(2.2rem,10vw,3.25rem)}.heading h2,.proposal-content h2,.final-copy h2,.cabin-copy h2{font-size:clamp(1.65rem,7.4vw,2.15rem);line-height:1.48}.heading>p:last-child,.proposal-content>p:not(.eyebrow,.enter-car),.cabin-copy>p:not(.eyebrow),.final-copy>p:not(.eyebrow),.intro{font-size:.82rem;line-height:1.9}.traveler{left:8%;bottom:15%;transform:scale(.82);transform-origin:bottom}.loop-lamps i{bottom:30%;height:40%}.panel::before{background:rgba(4,5,12,.58)}}
 .journey-bg .traveler{display:none}
@@ -40,6 +59,5 @@ body.vehicle-mode .traveler{transform:translateY(35px) scale(.7)}
 .endless-road b{animation:road-left 2.6s linear infinite}
 .panel::before{background:linear-gradient(90deg,rgba(7,8,18,.78),rgba(12,14,29,.4) 58%,rgba(12,14,29,.14))}
 .panel:nth-child(even)::before{background:linear-gradient(90deg,rgba(7,8,18,.72),rgba(12,14,29,.34) 62%,rgba(12,14,29,.12))}
-.foreground-traveler span::before,.foreground-traveler span::after{animation-duration:1.05s}
 @keyframes lamps-wide-left{to{transform:translateX(-33.33vw)}}
-@media(prefers-reduced-motion:reduce){.loop-lamps,.endless-road b,.foreground-traveler span::before,.foreground-traveler span::after{animation:none}}
+@media(prefers-reduced-motion:reduce){.loop-lamps,.endless-road b,.foreground-traveler,.walker-head,.walker-arm,.walker-leg,.walker-leg b,.walker-leg b::after{animation:none}}
